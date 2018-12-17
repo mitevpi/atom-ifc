@@ -1,2 +1,3 @@
-# atom-ifc
-Syntax highlighting for IFC in Atom.
+# PackageName language package
+
+A short description of your language package.

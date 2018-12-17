@@ -1,0 +1,149 @@
+'fileTypes' : [
+  'ifc'
+]
+'name' : 'ifc'
+'patterns' : [
+  {
+    'include' : '#main'
+  }
+]
+'scopeName' : 'source.ifc'
+'uuid' : ''
+'repository' : {
+  'main' : {
+    'patterns' : [
+      {
+        'match' : '(\\IFC[A-Z0-9]*)'
+        'name' : 'keyword.ifc'
+      }
+      {
+        'match' : '(#\\d+)'
+        'name' : 'constant.numeric.ifc'
+      }
+      {
+        'include' : '#numeric'
+      }
+      {
+        'begin' : '(\\{)'
+        'beginCaptures' : {
+          '1' : {
+            'name' : 'punctuation.ifc'
+          }
+        }
+        'patterns' : [
+          {
+            'include' : '#main__1'
+          }
+        ]
+        'end' : '(\\})'
+        'endCaptures' : {
+          '1' : {
+            'name' : 'punctuation.ifc'
+          }
+        }
+      }
+      {
+        'match' : '(;)'
+        'name' : 'punctuation.ifc'
+      }
+      {
+        'begin' : '(\\")'
+        'beginCaptures' : {
+          '1' : {
+            'name' : 'punctuation.ifc'
+          }
+        }
+        'contentName' : 'text.ifc'
+        'end' : '(\\")'
+        'endCaptures' : {
+          '1' : {
+            'name' : 'punctuation.ifc'
+          }
+        }
+      }
+      {
+        'begin' : '(\\()'
+        'beginCaptures' : {
+          '1' : {
+            'name' : 'punctuation.ifc'
+          }
+        }
+        'patterns' : [
+          {
+            'include' : '#main__3'
+          }
+        ]
+        'end' : '(\\))'
+        'endCaptures' : {
+          '1' : {
+            'name' : 'punctuation.ifc'
+          }
+        }
+      }
+      {
+        'include' : '#multi_line_comment'
+      }
+      {
+        'match' : '(//.*)'
+        'name' : 'comment.ifc'
+      }
+      {
+        'match' : '([^\\S\\x{0020}])'
+        'name' : 'invalid.ifc'
+      }
+    ]
+  }
+  'main__1' : {
+    'patterns' : [
+      {
+        'include' : '#main'
+      }
+    ]
+  }
+  'main__2' : {
+    'patterns' : [
+    ]
+  }
+  'main__3' : {
+    'patterns' : [
+      {
+        'include' : '#numeric'
+      }
+      {
+        'match' : '(,)'
+        'name' : 'punctuation.ifc'
+      }
+    ]
+  }
+  'multi_line_comment' : {
+    'patterns' : [
+      {
+        'begin' : '(/\\*)'
+        'beginCaptures' : {
+          '1' : {
+            'name' : 'comment.ifc'
+          }
+        }
+        'contentName' : 'comment.ifc'
+        'end' : '(\\*/)'
+        'endCaptures' : {
+          '1' : {
+            'name' : 'comment.ifc'
+          }
+        }
+      }
+    ]
+  }
+  'multi_line_comment__1' : {
+    'patterns' : [
+    ]
+  }
+  'numeric' : {
+    'patterns' : [
+      {
+        'match' : '(\\b\\d+)'
+        'name' : 'constant.numeric.ifc'
+      }
+    ]
+  }
+}
