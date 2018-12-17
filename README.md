@@ -1,3 +1,3 @@
-# PackageName language package
+# Syntax Highlighting for IFC
 
-A short description of your language package.
+Syntax highlighting of IFC files in Atom IDE.
